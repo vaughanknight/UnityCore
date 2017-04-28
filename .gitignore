@@ -1,0 +1,16 @@
+.vs
+.vs/*
+*.meta
+UnityCoreProject/Build
+UnityCoreProject/obj
+UnityCoreProject/Temp
+UnityCoreProject/packages
+UnityCoreProject/Library
+UnityCoreProject/Library/**
+UnityCoreProject/ProjectSettings
+project.lock.json
+obj
+obj/**
+bin
+bin/**
+*.pdb
