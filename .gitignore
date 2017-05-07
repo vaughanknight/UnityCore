@@ -1,6 +1,5 @@
 .vs
 .vs/*
-*.meta
 UnityCoreProject/Build
 UnityCoreProject/obj
 UnityCoreProject/Temp
