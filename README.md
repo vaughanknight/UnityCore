@@ -100,7 +100,7 @@ ContinueWith(task =>
     Debug.Log("Neither is this");
     return "{answer: 42}";
 }).
-    ContinueWithOnMainThread(task =>
+ContinueWithOnMainThread(task =>
 {
     // Now jumping onto the main thread 
     // and we have the result from the previous thread!
