@@ -63,7 +63,6 @@ public class Tester
                     Debug.Log("Exception:" + e.Message);
                 }
             });
-
             Debug.Log("Requesting2");
 
             return buffer;

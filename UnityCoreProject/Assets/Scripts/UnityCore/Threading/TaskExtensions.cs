@@ -17,18 +17,21 @@ namespace UnityCore.Threading
         {
             return task.ContinueWith(t =>
             {
-                return MainThreadHandoff(task, continuationFunction);
+                HandToMainThreadAndWait(task, action);
+            });
+        }
+
+        public static Task<TResult> ContinueWithOnMainThread<TResult>(this Task task, Func<Task, TResult> continuationFunction)
+        {
+            return task.ContinueWith(t =>
+            {
+                return HandToMainThreadAndWait(task, continuationFunction);
             });
         }
 
         public static Task<TResult> ContinueWithOnMainThread<TResult, TGeneric>(this Task<TGeneric> task, Func<Task<TGeneric>, TResult> continuationFunction)
         {
             Debug.Log("MainThread Test");
-            //var mainThreadTask = UnityMainThreadDispatcher.Instance.Enqueue<TResult>(() =>
-            //{
-            //    return continuationFunction.Invoke(task);
-            //});
-            //return mainThreadTask;
             return task.ContinueWith( t=>
             {
                 return HandToMainThreadAndWait(task, continuationFunction);
@@ -48,13 +51,34 @@ namespace UnityCore.Threading
             t.Wait();
         }
 
-        public static Task ContinueWithOnMainThread<TGeneric>(this Task<TGeneric> task, Action<Task<TGeneric>> continuationFunction)
+        //private static TResult HandToMainThreadAndWait<TPrevious, TResult>(Task<TPrevious> task, Func<Task<TPrevious>, TResult> func)
+        //{
+        //    var t = UnityMainThreadDispatcher.Instance.Enqueue(() => func.Invoke(task));
+        //    t.Wait();
+        //    return t.Result;
+        //}
+
+        // Has result, takes nothing
+        private static TResult HandToMainThreadAndWait<TResult>(Task task, Func<Task, TResult> func)
         {
-            var mainThreadTask = UnityMainThreadDispatcher.Instance.Enqueue(() =>
-            {
-                continuationFunction(task);
-            });
-            return mainThreadTask;
+            var t = UnityMainThreadDispatcher.Instance.Enqueue(() => func.Invoke(task));
+            t.Wait();
+            return t.Result;
         }
+
+        private static void HandToMainThreadAndWait(Task task, Action<Task> action)
+        {
+            var t = UnityMainThreadDispatcher.Instance.Enqueue(() => action(task));
+            t.Wait();
+        }
+        
+        //public static Task ContinueWithOnMainThread<TGeneric>(this Task<TGeneric> task, Action<Task<TGeneric>> continuationFunction)
+        //{
+        //    var mainThreadTask = UnityMainThreadDispatcher.Instance.Enqueue(() =>
+        //    {
+        //        continuationFunction(task);
+        //    });
+        //    return mainThreadTask;
+        //}
     }
 }
