@@ -39,44 +39,39 @@ public class Tester
             Debug.Log("Requesting");
             byte[] buffer = new byte[128];
             // Let's do a long running activity
-            //var parallel = Parallel.For(0, 9, number =>
-            //{
-            try
+            var parallel = Parallel.For(0, 9, number =>
             {
-                HttpWebRequest wr = (HttpWebRequest)WebRequest.Create("http://unsplash.it?" + DateTime.Now.Millisecond);
-                var response = (HttpWebResponse)wr.GetResponse();
-                if (response.StatusCode != HttpStatusCode.OK)
+                try
                 {
-                    Debug.Log("Status:" + response.StatusCode);
+                    HttpWebRequest wr = (HttpWebRequest)WebRequest.Create("http://unsplash.it?" + DateTime.Now.Millisecond);
+                    var response = (HttpWebResponse)wr.GetResponse();
+                    if (response.StatusCode != HttpStatusCode.OK)
+                    {
+                        Debug.Log("Status:" + response.StatusCode);
+                    }
+                    else
+                    {
+                        var stream = response.GetResponseStream();
+                        buffer = new byte[response.ContentLength];
+                        stream.Read(buffer, 0, (int)response.ContentLength);
+                        stream.Close();
+                        Debug.Log("Requested");
+                    }
                 }
-                else
+                catch (Exception e)
                 {
-                    var stream = response.GetResponseStream();
-                    buffer = new byte[response.ContentLength];
-                    stream.Read(buffer, 0, (int)response.ContentLength);
-                    stream.Close();
-                    Debug.Log("Requested");
+                    Debug.Log("Exception:" + e.Message);
                 }
-            }
-            catch (Exception e)
-            {
-                Debug.Log("Exception:" + e.Message);
-            }
-            //});
+            });
 
-            Debug.Log("Requesting");
+            Debug.Log("Requesting2");
 
             return buffer;
         }).
-        ContinueWith(task =>
+        ContinueWithOnMainThread(task =>
         {
-            var t = UnityMainThreadDispatcher.Instance.Enqueue(() =>
-            {
-                Debug.Log("Hello? " + Application.isEditor);
-                return task.Result.Length;
-            });
-            t.Wait();
-            return t.Result;
+                Debug.Log("wow " + Application.isEditor);
+                return 123;
         }).
         ContinueWith(task =>
         {
@@ -84,5 +79,12 @@ public class Tester
             // Texture2D.width can only be called on the main thread, so it should fail
             Debug.Log("This is the image width: " + task.Result);
         });
+    }
+
+    private static TResult WhatTheFunctionLooksLike<TPrevious, TResult>(Task<TPrevious> task, Func<Task<TPrevious>, TResult> func)
+    {
+        var t = UnityMainThreadDispatcher.Instance.Enqueue(() => func.Invoke(task));
+        t.Wait();
+        return t.Result;
     }
 }
