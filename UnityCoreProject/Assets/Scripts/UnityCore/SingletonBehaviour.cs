@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 /// <summary>
 /// The SingletonBehaviour ensures that
 /// there is only ever a single copy of an inheriting behaviour, that in turn allows Singleton like
@@ -15,8 +16,8 @@ using UnityEngine;
 /// </summary>
 public class SingletonBehaviour<T> : SmartBehaviour where T : SmartBehaviour
 {
-    private const string TEXT_SINGLETON_EXISTS_ERROR = "Singleton '{0}' is already created. Destroying the object.";
-    private static SmartBehaviour _instance;
+    protected const string TEXT_SINGLETON_EXISTS_ERROR = "Singleton '{0}' is already created. Destroying the object.";
+    protected static SmartBehaviour _instance;
 
     public static T Instance
     {

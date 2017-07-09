@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityCoreProject", "UnityCoreProject.csproj", "{CFB2CD3F-6E19-5855-805C-CEB069FB04D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityCoreProject.Editor", "UnityCoreProject.Editor.csproj", "{798A176B-13AE-CB36-5950-CBC6A08964DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetForUnity", "NugetForUnity\NugetForUnity.csproj", "{AE311746-D117-431D-A1A2-8FD737C5369C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{CFB2CD3F-6E19-5855-805C-CEB069FB04D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFB2CD3F-6E19-5855-805C-CEB069FB04D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFB2CD3F-6E19-5855-805C-CEB069FB04D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{798A176B-13AE-CB36-5950-CBC6A08964DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{798A176B-13AE-CB36-5950-CBC6A08964DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{798A176B-13AE-CB36-5950-CBC6A08964DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{798A176B-13AE-CB36-5950-CBC6A08964DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE311746-D117-431D-A1A2-8FD737C5369C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE311746-D117-431D-A1A2-8FD737C5369C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE311746-D117-431D-A1A2-8FD737C5369C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE311746-D117-431D-A1A2-8FD737C5369C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
