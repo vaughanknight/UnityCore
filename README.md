@@ -177,4 +177,4 @@ Parallel.For(0, 100, index =>
     Debug.Log(index);
 });
 ```
-The call to `Parallel.For(int low, int high, Action)` will run the Debug.Log(index) 101 times.  This can be handy when downloading a set of icons online.
+The call to `Parallel.For(int low, int high, Action)` will run the Debug.Log(index) 101 times.  This can be handy when downloading a collection of online resources.  For me it's usually when prefetching detailed information for a set of results.
