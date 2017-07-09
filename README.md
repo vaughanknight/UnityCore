@@ -154,9 +154,9 @@ Here you can see that we just go `ContinueWith` and voila, you're back off the m
 ## Multiple Tasks
 Let's say you create a few tasks, you can wait for them all to complete by using `Task.Factory.ContinueWhenAll`.
 ```csharp
-var t1 = new Task( () => ... );
-var t2 = new Task( () => ... );
-var tasks = new Task[]{ t1, t2};
+var t1 = Task.Factory.StartNew( () => ... );
+var t2 = Task.Factory.StartNew( () => ... );
+var tasks = new Task[]{t1, t2};
 Task.Factory.ContinueWhenAll(tasks, allTasks =>
 {
     foreach(var task in allTasks)
