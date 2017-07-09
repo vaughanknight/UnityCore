@@ -13,6 +13,7 @@ namespace UnityCore.Threading
     /// </summary>
     public static class TaskExtensions
     {
+        // Input void, output void
         public static Task ContinueWithOnMainThread(this Task task, Action<Task> action)
         {
             return task.ContinueWith(t =>
@@ -21,6 +22,7 @@ namespace UnityCore.Threading
             });
         }
 
+        // Input void, output result
         public static Task<TResult> ContinueWithOnMainThread<TResult>(this Task task, Func<Task, TResult> continuationFunction)
         {
             return task.ContinueWith(t =>
@@ -29,6 +31,7 @@ namespace UnityCore.Threading
             });
         }
 
+        // Input value, output result
         public static Task<TResult> ContinueWithOnMainThread<TResult, TGeneric>(this Task<TGeneric> task, Func<Task<TGeneric>, TResult> continuationFunction)
         {
             Debug.Log("MainThread Test");

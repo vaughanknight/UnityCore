@@ -29,61 +29,31 @@ public class Tester
         {
             Debug.Log("This isn't on the main thread");
         }).
-        //ContinueWithOnMainThread(task =>
-        //{
-        //    Debug.Log("This could be initialisation on the main thread.");
-        //}).
         ContinueWith(task =>
         {
-            // Jumping off the main thread for a web request
-            Debug.Log("Requesting");
-            byte[] buffer = new byte[128];
-            // Let's do a long running activity
-            var parallel = Parallel.For(0, 9, number =>
-            {
-                try
-                {
-                    HttpWebRequest wr = (HttpWebRequest)WebRequest.Create("http://unsplash.it?" + DateTime.Now.Millisecond);
-                    var response = (HttpWebResponse)wr.GetResponse();
-                    if (response.StatusCode != HttpStatusCode.OK)
-                    {
-                        Debug.Log("Status:" + response.StatusCode);
-                    }
-                    else
-                    {
-                        var stream = response.GetResponseStream();
-                        buffer = new byte[response.ContentLength];
-                        stream.Read(buffer, 0, (int)response.ContentLength);
-                        stream.Close();
-                        Debug.Log("Requested");
-                    }
-                }
-                catch (Exception e)
-                {
-                    Debug.Log("Exception:" + e.Message);
-                }
-            });
-            Debug.Log("Requesting2");
-
-            return buffer;
+            // Still off the main thread for some async
+            // i.e. imagine we retrieved some json 
+            Debug.Log("Neither is this");
+            return "{answer: 42}";
         }).
         ContinueWithOnMainThread(task =>
         {
-                Debug.Log("wow " + Application.isEditor);
-                return 123;
+            // Now jumping onto the main thread 
+            // and we have the result from the previous thread!
+            Debug.Log(task.Result);
+
+            // And we can do main thread only tasks
+            Debug.Log(Application.isEditor);
+
+            // And we can also pass values off the main thread
+            return 123;
         }).
         ContinueWith(task =>
         {
-            // Now we have the texture, loaded from the web request, off the main thread
-            // Texture2D.width can only be called on the main thread, so it should fail
-            Debug.Log("This is the image width: " + task.Result);
+            // And voila, we now have the result from the main thread, 
+            // back off and can work async
+            Debug.Log(task.Result);
         });
     }
 
-    private static TResult WhatTheFunctionLooksLike<TPrevious, TResult>(Task<TPrevious> task, Func<Task<TPrevious>, TResult> func)
-    {
-        var t = UnityMainThreadDispatcher.Instance.Enqueue(() => func.Invoke(task));
-        t.Wait();
-        return t.Result;
-    }
 }
