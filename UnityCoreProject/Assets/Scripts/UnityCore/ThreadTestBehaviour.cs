@@ -38,8 +38,7 @@ public class Tester
         }).
         ContinueWithOnMainThread(task =>
         {
-            // Now jumping onto the main thread 
-            // and we have the result from the previous thread!
+            // Now jumping with data back onto the main thread 
             Debug.Log(task.Result);
 
             // And we can do main thread only tasks

@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0b2</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -225,28 +223,27 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading">
-      <HintPath>Assets\Plugins\System.Threading.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>Assets\packages\Castle.Core.3.3.3\lib\net35\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>Assets\Plugins\System.Threading.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UnityCore\AsyncUnityTask.cs" />
     <Compile Include="Assets\Scripts\UnityCore\AsyncUnityTaskManager.cs" />
-    <Compile Include="Assets\Scripts\UnityCore\IUnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SelfInstantiatingSingletonBehaviour.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Singleton.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SingletonBehaviour.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SmartBehaviour.cs" />
-    <Compile Include="Assets\Scripts\UnityCore\TestInterceptionBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UnityCore\Threading\IUnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\TaskExtensions.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\ThreadHelper.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\UnityEditorThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\UnityGameThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\UnityMainThreadDispatcher.cs" />
-    <Compile Include="Assets\Scripts\NugetForUnity\ThreadTestBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UnityCore\ThreadTestBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.XML" />

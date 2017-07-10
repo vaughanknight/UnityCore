@@ -69,7 +69,7 @@ Task.Factory.StartNew(() =>
 This simply runs the debug statement off the main thread.  This might be more complex, like loading a file, or initialisation.
 
 ### Continuing
-But imagine you want to do something once that async Task is complete.  You can follow that up with `ContinueWith`.
+Often you will want to do something once that async Task is complete.  You can follow up easily with `ContinueWith`.
 ```csharp
 // First Task runs off the main thread
 Task.Factory.StartNew(() =>
