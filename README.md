@@ -1,5 +1,5 @@
 # UnityCore
-Core boilerplate code I use in Unity, including singletons, smart behaviours etc
+Core boilerplate code I use in Unity, including singletons, smart behaviours etc.  Most people come here for the threading bits so keeping this short.
 
 # UnityCore.Threading
 Do away with coroutines, and start using Tasks in Unity.
@@ -13,10 +13,9 @@ Do away with coroutines, and start using Tasks in Unity.
     * Writing one set of code for the editor another for the player
     * Passing around a MonoBehaviour for coroutines
     * Iterators through your code for Coroutines
-    * Coroutines
+    * Coroutines - Goodbye!
     * Writing classes just to handle async logic 
     * Callbacks just to get return values
-    * Callbacks 
 
 ```csharp
 public class Tester
