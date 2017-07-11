@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0b2</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -222,9 +220,6 @@
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>Assets\packages\Castle.Core.3.3.3\lib\net35\Castle.Core.dll</HintPath>
     </Reference>
@@ -250,10 +245,6 @@
     <Compile Include="Assets\Scripts\UnityCore\ThreadTestBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.XML" />
-    <None Include="Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
-    <None Include="Assets\JsonDotNet\Assemblies\Windows\Newtonsoft.Json.XML" />
-    <None Include="Assets\JsonDotNet\link.xml" />
     <None Include="Assets\packages\Castle.Core.3.3.3\ASL - Apache Software Foundation License.txt" />
     <None Include="Assets\packages\Castle.Core.3.3.3\BreakingChanges.txt" />
     <None Include="Assets\packages\Castle.Core.3.3.3\Changes.txt" />
