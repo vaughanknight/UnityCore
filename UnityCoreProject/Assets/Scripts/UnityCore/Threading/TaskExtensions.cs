@@ -43,27 +43,53 @@ namespace UnityCore.Threading
         // Has result, takes nothing
         private static TResult HandToMainThreadAndWait<TResult>(Task task, Func<Task, TResult> func)
         {
-            var t = UnityMainThreadDispatcher.Instance.Enqueue(() => func.Invoke(task));
-            t.Wait();
-            return t.Result;
+            return HandToThreadAndWait<TResult>(task, func, UnityMainThreadDispatcher.Instance);
         }
 
         private static TResult HandToMainThreadAndWait<TPrevious, TResult>(Task<TPrevious> task, Func<Task<TPrevious>, TResult> func)
         {
-            var t = UnityMainThreadDispatcher.Instance.Enqueue(() => func.Invoke(task));
-            t.Wait();
-            return t.Result;
+            return HandToThreadAndWait(task, func, UnityMainThreadDispatcher.Instance);
         }
 
         private static void HandToMainThreadAndWait<TPrevious>(Task<TPrevious> task, Action<Task<TPrevious>> action)
         {
-            var t = UnityMainThreadDispatcher.Instance.Enqueue(() => action(task));
-            t.Wait();
+            HandToThreadAndWait(task, action, UnityMainThreadDispatcher.Instance);
         }
         
         private static void HandToMainThreadAndWait(Task task, Action<Task> action)
         {
-            var t = UnityMainThreadDispatcher.Instance.Enqueue(() => action(task));
+            HandToThreadAndWait(task, action, UnityMainThreadDispatcher.Instance);
+        }
+
+        private static TResult HandToThreadAndWait<TResult>(Task task, Func<Task, TResult> func, IUnityMainThreadDispatcher dispatcher)
+        {
+            var t = dispatcher.Enqueue(() => func.Invoke(task));
+            t.Wait();
+            return t.Result;
+        }
+
+        private static TResult HandToThreadAndWait<TPrevious, TResult>(Task<TPrevious> task, Func<Task<TPrevious>, TResult> func, IUnityMainThreadDispatcher dispatcher)
+        {
+            var t = dispatcher.Enqueue(() => func.Invoke(task));
+            t.Wait();
+            return t.Result;
+        }
+
+        /// <summary>
+        /// General methods
+        /// </summary>
+        /// <param name="task">The previous task</param>
+        /// <param name="action">The action to perform</param>
+        /// <param name="dispatcher">The Unity Dispatcher to run with</param>
+        public static void HandToThreadAndWait(Task task, Action<Task> action, IUnityMainThreadDispatcher dispatcher)
+        {
+            var t = dispatcher.Enqueue(() => action(task));
+            t.Wait();
+        }
+
+        public static void HandToThreadAndWait<TPrevious>(Task<TPrevious> task, Action<Task<TPrevious>> action, IUnityMainThreadDispatcher dispatcher)
+        {
+            var t = dispatcher.Enqueue(() => action(task));
             t.Wait();
         }
     }

@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.2.0b2</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -274,11 +276,14 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading">
-      <HintPath>Assets\Plugins\System.Threading.dll</HintPath>
-    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>Assets\packages\Castle.Core.3.3.3\lib\net35\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>Assets\Plugins\System.Threading.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +296,8 @@
     <Compile Include="Assets\Scripts\NugetForUnity\Editor\NugetForUnityWindow.cs" />
     <Compile Include="Assets\Scripts\NugetForUnity\Editor\NugetQueryModel.cs" />
     <Compile Include="Assets\Scripts\NugetForUnity\Editor\ThreadTest.cs" />
+    <Compile Include="Assets\Scripts\UnityCore\Threading\Editor\Directives.cs" />
+    <Compile Include="Assets\Scripts\UnityCore\Threading\Editor\EnvironmentCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JsonDotNet\Assemblies\AOT\Newtonsoft.Json.XML" />
@@ -304,6 +311,8 @@
     <None Include="Assets\packages\Castle.Core.3.3.3\License.txt" />
     <None Include="Assets\packages\Castle.Core.3.3.3\lib\net35\Castle.Core.xml" />
     <None Include="Assets\packages\Castle.Core.3.3.3\readme.txt" />
+    <None Include="Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.xml" />
+    <None Include="Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\redist.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

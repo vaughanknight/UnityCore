@@ -227,16 +227,18 @@
       <HintPath>Assets\packages\Castle.Core.3.3.3\lib\net35\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading">
+      <HintPath>Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
       <HintPath>Assets\Plugins\System.Threading.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UnityCore\AsyncUnityTask.cs" />
-    <Compile Include="Assets\Scripts\UnityCore\AsyncUnityTaskManager.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SelfInstantiatingSingletonBehaviour.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Singleton.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SingletonBehaviour.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SmartBehaviour.cs" />
+    <Compile Include="Assets\Scripts\UnityCore\Threading\EnvironmentCheck.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\IUnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\TaskExtensions.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\ThreadHelper.cs" />
@@ -257,6 +259,8 @@
     <None Include="Assets\packages\Castle.Core.3.3.3\License.txt" />
     <None Include="Assets\packages\Castle.Core.3.3.3\lib\net35\Castle.Core.xml" />
     <None Include="Assets\packages\Castle.Core.3.3.3\readme.txt" />
+    <None Include="Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.xml" />
+    <None Include="Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\redist.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

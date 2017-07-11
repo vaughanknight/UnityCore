@@ -150,6 +150,15 @@ ContinueWith(task =>
 ```
 Here you can see that we just go `ContinueWith` and voila, you're back off the main thread, with the data obtained in the main thread.  This could be for example, the dimensions of the `Texture2D` downloaded, as `Texture2D.width` can only be called on the main thread.
 
+## Why Not Use TaskScheduler.FromCurrentSynchronizationContext() ?
+There are a few issues with this, including implied contexts, and the varying Engine loop.
+### Implied Context
+Let's say you are capturing device input from an external source, or possibly listening for a message bus, when this event fires, you may want to do something on the main thread.  In this case `TaskScheduler.FromCurrentSynchronizationContext` is not on the main game thread, so it simply won't work.
+### The Engine Loop
+Implied context aside, even if you just gave it the main game thread to run the `Task` on, the `Task` itself needs to run inside the `Update()` phase on the game loop.  While some calls may work when throwing back to the thread, other things will not.  In addition, you can profile these calls in the profiler if you put them in the update loop, ensuring your threading is predictable, and knowing the overhead per frame.
+### How Can I Run The Callback on FixedUpdate()? 
+Good point.  Add it to the list for now.  For now you could trigger this from your Update call, however that is just more thread / state weaving which this libary is meant to remove from your coding. 
+
 ## Multiple Tasks
 Let's say you create a few tasks, you can wait for them all to complete by using `Task.Factory.ContinueWhenAll`.
 ```csharp
@@ -166,7 +175,8 @@ Task.Factory.ContinueWhenAll(tasks, allTasks =>
 ```
 THis is the base functionality out of the Task library. 
 
-**NOTE** - There is no `ContinueWhenAllOnMainThread` implementation yet.  
+**NOTE** - There is no `ContinueWhenAllOnMainThread` implementation yet.
+
 ## Parallel
 Parallel is very straight forward, and it just uses the base Task Parallel Library 3.5 implementation.  Most of the guidance can be found there, however to give you an idea of what you can do, an example is provided below.
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEditor;
+using UnityEngine;
 
 namespace UnityCore.Threading
 {
@@ -17,16 +18,16 @@ namespace UnityCore.Threading
         }
         public void Update()
         {
-            ThreadHelper.Update(_executionQueue);
+            UnityThreadHelper.Update(_executionQueue);
         }
         public Task Enqueue(Action action)
         {
-            return ThreadHelper.Enqueue(_executionQueue, action);
+            return UnityThreadHelper.Enqueue(_executionQueue, action);
         }
 
         public Task<T> Enqueue<T>(Func<T> func)
         {
-            return ThreadHelper.Enqueue<T>(_executionQueue, func);
+            return UnityThreadHelper.Enqueue<T>(_executionQueue, func);
         }
     }
 }

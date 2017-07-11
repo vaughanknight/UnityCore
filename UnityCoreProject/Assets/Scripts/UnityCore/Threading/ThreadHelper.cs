@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace UnityCore.Threading
 {
-    public static class ThreadHelper
+    public static class UnityThreadHelper
     {
         public static void Update(Queue<Action> _executionQueue)
         {

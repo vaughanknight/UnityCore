@@ -2,57 +2,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Behaviour that wraps all the bits that have heavy
-/// performace overhead with common 'getComponent' calls.
-/// 
-/// Why 'Smart'behaviour?  Because seriously.
-/// 
-/// NOTE: Feel free to add common accessors, generally which relate
-/// to those that have been deprecated for .GetComponent<T> which assumed
-/// a single instance i.e transform, renderer, rigidbody etc
-/// </summary>
-public class SmartBehaviour : MonoBehaviour {
-
-    private Transform _transform;
-
-    public Transform _Transform
+namespace UnityCore
+{
+    /// <summary>
+    /// Behaviour that wraps all the bits that have heavy
+    /// performace overhead with common 'getComponent' calls.
+    /// 
+    /// Why 'Smart'behaviour?  Because seriously.
+    /// 
+    /// NOTE: Feel free to add common accessors, generally which relate
+    /// to those that have been deprecated for .GetComponent<T> which assumed
+    /// a single instance i.e transform, renderer, rigidbody etc
+    /// </summary>
+    public class SmartBehaviour : MonoBehaviour
     {
-        get
+
+        private Transform _transform;
+
+        public Transform _Transform
         {
-            if(_transform == null)
+            get
             {
-                _transform = this.transform;
+                if (_transform == null)
+                {
+                    _transform = this.transform;
+                }
+                return _transform;
             }
-            return _transform;
         }
-    }
 
-    private Renderer _renderer;
+        private Renderer _renderer;
 
-    public Renderer _Renderer
-    {
-        get
+        public Renderer _Renderer
         {
-            if (_renderer == null)
+            get
             {
-                _renderer = this.GetComponent<Renderer>();
+                if (_renderer == null)
+                {
+                    _renderer = this.GetComponent<Renderer>();
+                }
+                return _renderer;
             }
-            return _renderer;
         }
-    }
 
-    private Rigidbody _rigidBody;
+        private Rigidbody _rigidBody;
 
-    public Rigidbody _RigidBody
-    {
-        get
+        public Rigidbody _RigidBody
         {
-            if (_rigidBody == null)
+            get
             {
-                _rigidBody = this.GetComponent<Rigidbody>();
+                if (_rigidBody == null)
+                {
+                    _rigidBody = this.GetComponent<Rigidbody>();
+                }
+                return _rigidBody;
             }
-            return _rigidBody;
         }
     }
 }

@@ -9,7 +9,7 @@ using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
-using UnityCore.Threading;
+//using UnityCore.Threading;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
@@ -27,9 +27,10 @@ public class ThreadTest : EditorWindow {
     {
         GUILayout.BeginVertical();
 
-        if(GUILayout.Button("Test Threads"))
+        if(GUILayout.Button("Test Threads")) 
         {
             Tester.Test();
+            
         }
         GUILayout.EndVertical();
     }

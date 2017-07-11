@@ -1,19 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Singleton<T> where T: new() {
-    private static T _instance;
-
-    public static T Instance
+namespace UnityCore
+{
+    public class Singleton<T> where T : new()
     {
-        get
+        private static T _instance;
+
+        public static T Instance
         {
-            if (_instance == null)
+            get
             {
-                _instance = new T();
+                if (_instance == null)
+                {
+                    _instance = new T();
+                }
+                return _instance;
             }
-            return _instance;
         }
     }
 }
