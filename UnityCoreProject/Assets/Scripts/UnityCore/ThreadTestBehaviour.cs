@@ -16,10 +16,7 @@ public class ThreadTestBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     { 
-        
         Tester.Test();
-        
-
     }
 	
 	// Update is called once per frame
