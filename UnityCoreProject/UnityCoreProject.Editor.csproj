@@ -277,9 +277,6 @@
     <Reference Include="System.Threading">
       <HintPath>Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading">
-      <HintPath>Assets\Plugins\System.Threading.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UnityCoreProject.csproj">
@@ -288,8 +285,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UnityCore\Threading\Editor\Directives.cs" />
-    <Compile Include="Assets\Scripts\UnityCore\Threading\Editor\EnvironmentCheck.cs" />
+    <Compile Include="Assets\Demos\Editor\ThreadTestEditorWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\packages\Castle.Core.3.3.3\ASL - Apache Software Foundation License.txt" />

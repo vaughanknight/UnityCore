@@ -226,11 +226,9 @@
     <Reference Include="System.Threading">
       <HintPath>Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading">
-      <HintPath>Assets\Plugins\System.Threading.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Demos\ThreadTestBehaviour.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SelfInstantiatingSingletonBehaviour.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Singleton.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SingletonBehaviour.cs" />
@@ -242,7 +240,6 @@
     <Compile Include="Assets\Scripts\UnityCore\Threading\UnityEditorThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\UnityGameThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\UnityMainThreadDispatcher.cs" />
-    <Compile Include="Assets\Scripts\UnityCore\ThreadTestBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\packages\Castle.Core.3.3.3\ASL - Apache Software Foundation License.txt" />

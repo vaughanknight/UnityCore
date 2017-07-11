@@ -35,6 +35,11 @@ namespace UnityCore.Threading
                 _instance = Current();
             }
         }
+
+        public static void ForceInitialise()
+        {
+            _instance = Current();
+        }
         public static IUnityMainThreadDispatcher Current()
         {
             IUnityMainThreadDispatcher dispatcher = null;
