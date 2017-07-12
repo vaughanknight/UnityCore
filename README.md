@@ -173,7 +173,7 @@ Task.Factory.ContinueWhenAll(tasks, allTasks =>
     }
 });
 ```
-THis is the base functionality out of the Task library. 
+This is the base functionality out of the Task library. 
 
 **NOTE** - There is no `ContinueWhenAllOnMainThread` implementation yet.
 
