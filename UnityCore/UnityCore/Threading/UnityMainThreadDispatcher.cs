@@ -49,19 +49,13 @@ namespace UnityCore.Threading
                 // game is playing.  What happens is the editor async calls end up hooking
                 // the main game loop.  Any ideas, let me know how you can find out if you are on
                 // the Game thread, or the Editor thread.
-
-#if UNITY_EDITOR
-                if (!Application.isEditor || Application.isPlaying)
-                {
-                    dispatcher = UnityGameThreadDispatcher.Instance;
-                }
-                else
-                {
+                //if (!Application.isEditor || Application.isPlaying)
+                //{
+                #if UNITY_CORE_EDITOR
                     dispatcher = UnityEditorThreadDispatcher.Instance;
-                }
-#else
-                dispatcher = UnityGameThreadDispatcher.Instance;
-#endif
+                #else
+                    dispatcher = UnityGameThreadDispatcher.Instance;                
+                #endif 
             }
             catch (Exception e)
             {

@@ -233,7 +233,6 @@
     <Compile Include="Assets\Scripts\UnityCore\Singleton.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SingletonBehaviour.cs" />
     <Compile Include="Assets\Scripts\UnityCore\SmartBehaviour.cs" />
-    <Compile Include="Assets\Scripts\UnityCore\Threading\EnvironmentCheck.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\IUnityMainThreadDispatcher.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\TaskExtensions.cs" />
     <Compile Include="Assets\Scripts\UnityCore\Threading\ThreadHelper.cs" />

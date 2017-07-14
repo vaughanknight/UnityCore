@@ -46,9 +46,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnityCore\SelfInstantiatingSingletonBehaviour.cs" />
+    <Compile Include="UnityCore\Singleton.cs" />
+    <Compile Include="UnityCore\SingletonBehaviour.cs" />
+    <Compile Include="UnityCore\SmartBehaviour.cs" />
+    <Compile Include="UnityCore\Threading\IUnityMainThreadDispatcher.cs" />
+    <Compile Include="UnityCore\Threading\TaskExtensions.cs" />
+    <Compile Include="UnityCore\Threading\ThreadHelper.cs" />
+    <Compile Include="UnityCore\Threading\UnityGameThreadDispatcher.cs" />
+    <Compile Include="UnityCore\Threading\UnityMainThreadDispatcher.cs" />
+    <Compile Include="UnityCore\Threading\UnityEditorThreadDispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)\Assets\Plugins\$(TargetFileName)</PostBuildEvent>
+  </PropertyGroup>
 </Project>
