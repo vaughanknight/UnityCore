@@ -51,6 +51,10 @@ namespace UnityCore.Threading
                 // the Game thread, or the Editor thread.
 
 #if UNITY_EDITOR
+                // There is an issue here, that being if code is being ran
+                // in the editor UI and in the player, you can end up with editor UI
+                // code running on the player thread.  It's backwards.
+                // Not sure how to avoid this for now.
                 if (!Application.isEditor || Application.isPlaying)
                 {
                     dispatcher = UnityGameThreadDispatcher.Instance;

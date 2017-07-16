@@ -41,12 +41,12 @@ public class Tester
         // However, if this code is just for the player, call Initialise once in your 
         // entire game lifecycle up front which ensures it knows the main thread context.
         UnityMainThreadDispatcher.ForceInitialise();
-
+        
         // First Task runs off the main thread
         Task.Factory.StartNew(() =>
         {
             Debug.Log("Action<Task> off main thread.");
-        }).
+        }).               
         ContinueWithOnMainThread(task =>
         {
             Debug.Log("Action<Task> on main thread.");

@@ -2,7 +2,7 @@
 Core boilerplate code I use in Unity, including singletons, smart behaviours etc.  Most people come here for the threading bits so keeping this short.
 
 # UnityCore.Threading
-Do away with coroutines, and start using Tasks in Unity.
+Do away with coroutines, and start using Tasks in Unity.  Coroutines are not threading, and give a way to do asynchronous tasks in chunks, but don't hand off to different CPU's to do computational heavy and thread locking execution.  This task library builds on the Task Parallel Library and gives the flexibilty to run tasks back on the main Unity3D thread with ease.  
 * Use Tasks to manage async code
 * Same code for async in **Editor** and in the **Unity Player**
 * Async in plain classes 
@@ -13,7 +13,6 @@ Do away with coroutines, and start using Tasks in Unity.
     * Writing one set of code for the editor another for the player
     * Passing around a MonoBehaviour for coroutines
     * Iterators through your code for Coroutines
-    * Coroutines - Goodbye!
     * Writing classes just to handle async logic 
     * Callbacks just to get return values
 
