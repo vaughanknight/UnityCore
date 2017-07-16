@@ -70,6 +70,7 @@ namespace UnityCore.Threading
             catch (Exception e)
             {
                 Debug.LogError("UnityMainThreadDispatcher.Initialise() must be called from the main thread prior to dispatching back to the main thread.");
+                Debug.LogError(e.StackTrace);
             }
             return dispatcher;
         }
