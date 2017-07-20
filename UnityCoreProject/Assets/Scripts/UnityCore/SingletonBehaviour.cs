@@ -28,7 +28,7 @@ namespace UnityCore
             }
         }
 
-        void Awake()
+        public void Awake()
         {
             if (_instance == null)
             {

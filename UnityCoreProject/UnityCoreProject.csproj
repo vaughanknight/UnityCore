@@ -220,11 +220,11 @@
     <Reference Include="UnityEngine.Purchasing">
       <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Core">
-      <HintPath>Assets\packages\Castle.Core.3.3.3\lib\net35\Castle.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System.Threading">
       <HintPath>Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>Assets\packages\Castle.Windsor.2.5.4\lib\net35\Castle.Windsor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -241,12 +241,12 @@
     <Compile Include="Assets\Scripts\UnityCore\Threading\UnityMainThreadDispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\packages\Castle.Core.3.3.3\ASL - Apache Software Foundation License.txt" />
-    <None Include="Assets\packages\Castle.Core.3.3.3\BreakingChanges.txt" />
-    <None Include="Assets\packages\Castle.Core.3.3.3\Changes.txt" />
-    <None Include="Assets\packages\Castle.Core.3.3.3\License.txt" />
-    <None Include="Assets\packages\Castle.Core.3.3.3\lib\net35\Castle.Core.xml" />
-    <None Include="Assets\packages\Castle.Core.3.3.3\readme.txt" />
+    <None Include="Assets\packages\Castle.Windsor.2.5.4\lib\ASL - Apache Software Foundation License.txt" />
+    <None Include="Assets\packages\Castle.Windsor.2.5.4\lib\BreakingChanges.txt" />
+    <None Include="Assets\packages\Castle.Windsor.2.5.4\lib\Changes.txt" />
+    <None Include="Assets\packages\Castle.Windsor.2.5.4\lib\Committers.txt" />
+    <None Include="Assets\packages\Castle.Windsor.2.5.4\lib\net35\Castle.Windsor.xml" />
+    <None Include="Assets\packages\Castle.Windsor.2.5.4\lib\releaseNotes.txt" />
     <None Include="Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.xml" />
     <None Include="Assets\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\redist.txt" />
   </ItemGroup>

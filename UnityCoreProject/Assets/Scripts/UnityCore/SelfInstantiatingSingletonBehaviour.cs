@@ -13,16 +13,15 @@ namespace UnityCore
             {
                 if (_instance == null)
                 {
-                    // This is the first instance of the 
+                    // This is the first instance 
                     var obj = new GameObject(typeof(T).Name);
-                    //_instance = 
                     obj.AddComponent<T>();
                 }
                 return (T)_instance;
             }
         }
 
-        public void Awake()
+        public new void Awake()
         {
             if (_instance == null)
             {
